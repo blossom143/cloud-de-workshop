@@ -1,0 +1,47 @@
+You will be working with AWS S3, Glue, Athena, Quicksight, IAM
+(Use Region US-East-Virginia for everything)
+1. Create account, sign up for Quicksight (Add Athena & S3 access)
+2. Create IAM User 
+    - Attach Policies: AWSGlueServiceRole, CloudWatchLogsReadOnlyAccess, AmazonS3FullAccess, AWSGlueConsoleFullAccess, AmazonAthenaFullAccess, AWSQuicksightAthenaAccess, AWSQuickSightDescribeRDS, iampasson
+    - "{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::944150635171:role/Glue_access_s3"
+        }
+    ]
+}"
+3. Create Glue Role
+    - Entity type: AWS Service
+    - Use Case: Glue
+    - Permission: AmazonS3FullAccess, AWSGlueServiceRole, AWSGlueConsoleFullAccess, AmazonAthenaFullAccess, AWSQuickSightAthenaAccess
+
+Sign in via IAM User and Change Password
+4. Create default S3 bucket 
+    - Create default folders staging/ datawarehouse/ and athena/
+    - Upload data into staging folder (Tracks, Albums, Artists)
+    - https://www.kaggle.com/datasets/tonygordonjr/spotify-dataset-2023?resource=download
+5. Glue: Run Visual ETL
+    - Create S3 Data Sources from staging/
+    - Left Join Album, Artists
+    - Left Join Tracks
+    - Drop Columns, Preview
+    - Select Destination s3: datawarehouse/
+    - Add AWS Service role & Save
+    - Run job
+6. Glue: Create Crawler
+    - Create Glue database
+    - Create Crawler using Glue database, on S3 datawarehouse/
+    - Run crawler
+
+7. Athena: Run query
+    - DESCRIBE spotify.datawarehouse;
+
+
+8. Quicksight
+    - Create Data Sources
+    - Edit string col to integer
+    - Create visualizations like bar graph for artists by popularity
+    - Publish dashboard
