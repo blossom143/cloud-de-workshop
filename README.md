@@ -2,7 +2,8 @@
 
 **Services:** S3 · Glue · Athena · QuickSight · IAM  
 **Region:** US-East-1 (N. Virginia) — use this for every step
-
+**Dataset:** https://www.kaggle.com/datasets/tonygordonjr/spotify-dataset-2023?resource=download&select=spotify_features_data_2023.csv
+**Slides:** https://docs.google.com/presentation/d/12LN-QsTvhKxYfG1BVBkGtytWirWhs4qY2sFHljJjWQs/edit?usp=sharing
 ---
 
 ## 1. Account Setup
