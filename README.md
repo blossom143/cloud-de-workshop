@@ -177,3 +177,5 @@ LIMIT 1000
 
 ### Publish
 - Click **Publish** → name your dashboard → confirm
+
+### MAKE SURE TO DELETE ALL RESOURCES CREATED IF YOU DON'T NEED THEM ANYMORE.
